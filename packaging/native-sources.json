@@ -1,0 +1,145 @@
+{
+  "mkvtoolnix": {
+    "binary_version": "103.0",
+    "recipe_commit": "ba36dff2e8c4ca28d607f25e56813daf5f47537b",
+    "recipe_commit_basis": "Chronological inference: this is the latest commit in the publisher's MXE fork dated before the official Windows 103.0 archive. Its recipe versions agree with the Qt, zlib and Vorbis versions visible in the binaries. The publisher did not identify this commit as the release build's exact recipe commit or provide a complete release-build dependency inventory.",
+    "checksum_basis": "Dependency archive SHA-256 values are copied from this pinned MXE recipe snapshot. The MXE archive SHA-256 was computed from its official immutable-commit archive. Download-time checks must confirm each archive against these values.",
+    "verified_binary_versions": {
+      "Qt": "6.12.0",
+      "GCC": "16.2.0",
+      "zlib": "1.3.2",
+      "Vorbis_in_mkvextract": "1.3.7"
+    },
+    "evidence_urls": [
+      "https://mkvtoolnix.download/windows/releases/103.0/",
+      "https://mkvtoolnix.download/windows/releases/103.0/sha256sums.txt",
+      "https://mkvtoolnix.download/sources/mkvtoolnix-103.0.tar.xz",
+      "https://mkvtoolnix.download/source.html",
+      "https://codeberg.org/api/v1/repos/mbunkus/mxe/commits?sha=master&until=2026-10-18T13%3A00%3A00Z&limit=1",
+      "https://codeberg.org/mbunkus/mxe/src/commit/ba36dff2e8c4ca28d607f25e56813daf5f47537b/src/qt/qt6/qt6-qtbase.mk",
+      "https://buildbot.mkvtoolnix.download/api/v2/logs/121103/contents"
+    ],
+    "estimated_total_bytes": 283037114,
+    "artifacts": [
+      {
+        "name": "qtbase",
+        "version": "6.12.0",
+        "url": "https://download.qt.io/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz",
+        "sha256": "a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307",
+        "estimated_bytes": 51220268
+      },
+      {
+        "name": "boost",
+        "version": "1.92.0",
+        "url": "https://archives.boost.io/release/1.92.0/source/boost_1_92_0.tar.bz2",
+        "sha256": "5c1d40cb8e19adbf740a4ec2da35b3e58f3f5804b1dce44deb53df72193cbc6c",
+        "estimated_bytes": 199030664
+      },
+      {
+        "name": "flac",
+        "version": "1.5.0",
+        "url": "https://downloads.xiph.org/releases/flac/flac-1.5.0.tar.xz",
+        "sha256": "f2c1c76592a82ffff8413ba3c4a1299b6c7ab06c734dee03fd88630485c2b920",
+        "estimated_bytes": 1078872
+      },
+      {
+        "name": "gettext",
+        "version": "1.0",
+        "url": "https://ftp.gnu.org/gnu/gettext/gettext-1.0.tar.lz",
+        "sha256": "d6342cbe1411a2fe7d139bfed80c2d63b1babc92acfedc72501cc105184f61ee",
+        "estimated_bytes": 10261665
+      },
+      {
+        "name": "gmp",
+        "version": "6.3.0",
+        "url": "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz",
+        "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+        "estimated_bytes": 2094196
+      },
+      {
+        "name": "libiconv",
+        "version": "1.19",
+        "url": "https://ftp.gnu.org/gnu/libiconv/libiconv-1.19.tar.gz",
+        "sha256": "88dd96a8c0464eca144fc791ae60cd31cd8ee78321e67397e25fc095c4a19aa6",
+        "estimated_bytes": 5921103
+      },
+      {
+        "name": "ogg",
+        "version": "1.3.6",
+        "url": "https://downloads.xiph.org/releases/ogg/libogg-1.3.6.tar.gz",
+        "sha256": "83e6704730683d004d20e21b8f7f55dcb3383cdf84c0daedf30bde175f774638",
+        "estimated_bytes": 604469
+      },
+      {
+        "name": "vorbis",
+        "version": "1.3.7",
+        "url": "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.gz",
+        "sha256": "0e982409a9c3fc82ee06e08205b1355e5c6aa4c36bca58146ef399621b0ce5ab",
+        "estimated_bytes": 1658963
+      },
+      {
+        "name": "zlib",
+        "version": "1.3.2",
+        "url": "https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.xz",
+        "sha256": "d7a0654783a4da529d1bb793b7ad9c3318020af77667bcae35f95d0e42a792f3",
+        "estimated_bytes": 1320064
+      },
+      {
+        "name": "pcre2",
+        "version": "10.49",
+        "url": "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.49/pcre2-10.49.tar.bz2",
+        "sha256": "53c156e1ba416a20da8e65395daa132da0d80e76910424caca3fcdae7831d384",
+        "estimated_bytes": 2185271
+      },
+      {
+        "name": "zstd",
+        "version": "1.5.7",
+        "url": "https://github.com/facebook/zstd/archive/v1.5.7.tar.gz",
+        "sha256": "37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3",
+        "estimated_bytes": 2451884
+      },
+      {
+        "name": "cmark",
+        "version": "0.31.2",
+        "url": "https://github.com/commonmark/cmark/archive/0.31.2.tar.gz",
+        "sha256": "f9bc5ca38bcb0b727f0056100fac4d743e768872e3bacec7746de28f5700d697",
+        "estimated_bytes": 267259
+      },
+      {
+        "name": "libdvdread",
+        "version": "6.1.3",
+        "url": "https://download.videolan.org/pub/videolan/libdvdread/6.1.3/libdvdread-6.1.3.tar.bz2",
+        "sha256": "ce35454997a208cbe50e91232f0e73fb1ac3471965813a13b8730a8f18a15369",
+        "estimated_bytes": 395439
+      },
+      {
+        "name": "libdvdcss",
+        "version": "1.4.3",
+        "url": "https://download.videolan.org/pub/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2",
+        "sha256": "233cc92f5dc01c5d3a96f5b3582be7d5cee5a35a52d3a08158745d3d86070079",
+        "estimated_bytes": 388404
+      },
+      {
+        "name": "bzip2",
+        "version": "1.0.8",
+        "url": "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
+        "sha256": "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269",
+        "estimated_bytes": 810029
+      },
+      {
+        "name": "expat",
+        "version": "2.9.0",
+        "url": "https://github.com/libexpat/libexpat/releases/download/R_2_9_0/expat-2.9.0.tar.bz2",
+        "sha256": "775e8a68f81a748a401dc3168318d4a39484eb4f954726f21517c8f42c0ba984",
+        "estimated_bytes": 685975
+      },
+      {
+        "name": "mxe-build-recipes",
+        "version": "ba36dff2e8c4ca28d607f25e56813daf5f47537b",
+        "url": "https://codeberg.org/mbunkus/mxe/archive/ba36dff2e8c4ca28d607f25e56813daf5f47537b.tar.gz",
+        "sha256": "42c8e1f13b14eb6dceecd5f52e37468e8384086082f99e108c3ab736e779b69d",
+        "estimated_bytes": 2662589
+      }
+    ]
+  }
+}

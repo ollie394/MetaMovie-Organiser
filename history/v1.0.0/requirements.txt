@@ -1,0 +1,7 @@
+requests>=2.32,<3
+blake3>=1.0,<2
+keyring>=25,<26
+cryptography>=44,<50
+Pillow>=12,<13
+pymediainfo>=7,<8
+mutagen>=1.48,<2

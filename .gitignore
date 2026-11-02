@@ -1,0 +1,44 @@
+# Python, development environments and editor files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.build/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.vscode/
+.idea/
+
+# Generated builds, archives and local reports
+/build/
+/dist/
+/release/
+/tools/
+/vendor-sources/
+*.zip
+/reports/
+/MMO-library-report*.json
+/MMO-library-report*.csv
+/MMO-library-counts*.csv
+/MMO-activity.txt
+
+# Local application state and credentials
+/data/
+/config/settings.json
+/portable.flag
+*.log
+MMO-Logs.txt
+*.json.enc
+.env
+.env.*
+!.env.example
+
+# Operating systems and temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
