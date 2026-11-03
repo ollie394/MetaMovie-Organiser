@@ -4,6 +4,14 @@ Match, rename and organise a movie collection with metadata from TMDB or TheTVDB
 
 **MMO 1.1.0 · Python 3.11+ · Windows desktop**
 
+## Windows download
+
+[**Download MetaMovie-Organiser 1.1.0 for Windows**](https://github.com/ollie394/MetaMovie-Organiser/releases/download/v1.1.0/MetaMovie-Organiser-Windows.zip)
+
+Extract the entire ZIP, then run `MetaMovie-Organiser.exe`. Keep the included `_internal` folder beside it. You do not need to install Python.
+
+[Release notes, source and checksums](https://github.com/ollie394/MetaMovie-Organiser/releases/tag/v1.1.0).
+
 [![Movie library — choose a folder, operation and dry run](docs/images/movie-library.png)](docs/images/movie-library.png)
 
 | Output & validation | Media analytics |
