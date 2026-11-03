@@ -2,17 +2,17 @@
 
 Match, rename and organise a movie collection with metadata from TMDB or TheTVDB. Scan a folder of films or its subfolders, review each match, and choose whether to rename files where they are or organise them into individual movie folders.
 
-**MMO 1.1.0 · Python 3.11+ · Windows desktop**
+**MMO 1.1.1 Â· Python 3.11+ Â· Windows desktop**
 
 ## Windows download
 
-[**Download MetaMovie-Organiser 1.1.0 for Windows**](https://github.com/ollie394/MetaMovie-Organiser/releases/download/v1.1.0/MetaMovie-Organiser-Windows.zip)
+[**Download MetaMovie-Organiser 1.1.1 for Windows**](https://github.com/ollie394/MetaMovie-Organiser/releases/download/v1.1.1/MetaMovie-Organiser-Windows.zip)
 
 Extract the entire ZIP, then run `MetaMovie-Organiser.exe`. Keep the included `_internal` folder beside it. You do not need to install Python.
 
-[Release notes, source and checksums](https://github.com/ollie394/MetaMovie-Organiser/releases/tag/v1.1.0).
+[Release notes, source and checksums](https://github.com/ollie394/MetaMovie-Organiser/releases/tag/v1.1.1).
 
-[![Movie library — choose a folder, operation and dry run](docs/images/movie-library.png)](docs/images/movie-library.png)
+[![Movie library â€” choose a folder, operation and dry run](docs/images/movie-library.png)](docs/images/movie-library.png)
 
 | Output & validation | Media analytics |
 | --- | --- |
@@ -30,12 +30,12 @@ Click any screenshot to view it at full size.
 
 ```text
 Movies/
-├── Avatar (2009)/
-│   └── Avatar (2009).mkv
-└── Batman Begins (2005)/
-    ├── Batman Begins (2005).mp4
-    ├── Batman Begins (2005).en.srt
-    └── poster.jpg
+â”œâ”€â”€ Avatar (2009)/
+â”‚   â””â”€â”€ Avatar (2009).mkv
+â””â”€â”€ Batman Begins (2005)/
+    â”œâ”€â”€ Batman Begins (2005).mp4
+    â”œâ”€â”€ Batman Begins (2005).en.srt
+    â””â”€â”€ poster.jpg
 ```
 
 Associated subtitles keep their language and accessibility suffixes, including subtitles stored under a movie's `Subs` or `Subtitles` folder. An existing local poster follows its movie when the association is clear. Uncertain associations and conflicting files require review; existing files are never overwritten. Poster downloads and transcoding are outside this workflow.
@@ -132,7 +132,7 @@ For isolated development and GUI checks, set `MMO_STATE_DIR` to a disposable dir
 .\scripts\build-windows.ps1
 ```
 
-The result is `dist\1.1.0\MetaMovie-Organiser\MetaMovie-Organiser.exe`, along with Windows/source ZIPs and SHA-256 checksums. Distribute the whole application folder, including `_internal`. Users do not need a separate Python installation or separately installed media tools to run the Windows package.
+The result is `dist\1.1.1\MetaMovie-Organiser\MetaMovie-Organiser.exe`, along with Windows/source ZIPs and SHA-256 checksums. Distribute the whole application folder, including `_internal`. Users do not need a separate Python installation or separately installed media tools to run the Windows package.
 
 Native preparation needs Visual Studio C++ Build Tools and Git for Windows. The script downloads pinned official MediaInfo/MKVToolNix archives, builds FFprobe from unmodified FFmpeg source with optional external libraries disabled, and retains the native source/licence material. Downloads and compilation stay inside the project. Run `python scripts/prepare_tools.py` separately to prepare these tools for a source checkout.
 

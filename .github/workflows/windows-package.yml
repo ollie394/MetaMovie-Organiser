@@ -27,10 +27,10 @@ jobs:
         with:
           name: MetaMovie-Organiser-Windows
           path: |
-            dist/1.1.0/MetaMovie-Organiser-Windows.zip
-            dist/1.1.0/MetaMovie-Organiser-Windows.zip.sha256
-            dist/1.1.0/MetaMovie-Organiser-Source.zip
-            dist/1.1.0/MetaMovie-Organiser-Source.zip.sha256
-            dist/1.1.0/MetaMovie-Organiser-NativeToolSources.zip
-            dist/1.1.0/MetaMovie-Organiser-NativeToolSources.zip.sha256
+            dist/1.1.1/MetaMovie-Organiser-Windows.zip
+            dist/1.1.1/MetaMovie-Organiser-Windows.zip.sha256
+            dist/1.1.1/MetaMovie-Organiser-Source.zip
+            dist/1.1.1/MetaMovie-Organiser-Source.zip.sha256
+            dist/1.1.1/MetaMovie-Organiser-NativeToolSources.zip
+            dist/1.1.1/MetaMovie-Organiser-NativeToolSources.zip.sha256
           if-no-files-found: error

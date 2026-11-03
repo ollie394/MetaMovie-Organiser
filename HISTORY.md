@@ -3,7 +3,8 @@
 | Version | Source | Status |
 | --- | --- | --- |
 | 1.0.0 | [Historical source snapshot](history/v1.0.0/) | Imported on 2026-11-02 for reference |
-| 1.1.0 | Repository root | Current version; see [CHANGELOG.md](CHANGELOG.md) |
+| 1.1.0 | [Release source](https://github.com/ollie394/MetaMovie-Organiser/tree/v1.1.0) | Previous release |
+| 1.1.1 | Repository root | Current patch release; see [CHANGELOG.md](CHANGELOG.md) |
 
 The 1.0.0 folder preserves the earlier standalone source project. Development continues in the repository root. These are source-snapshot imports, not reconstructed or backdated original commits.
 

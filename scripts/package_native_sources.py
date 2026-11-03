@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path,
-                        default=ROOT / 'dist/1.1.0/MetaMovie-Organiser-NativeToolSources.zip')
+                        default=ROOT / 'dist/1.1.1/MetaMovie-Organiser-NativeToolSources.zip')
     args = parser.parse_args()
     source = ROOT / 'vendor-sources'
     required = [source / 'ffprobe/ffmpeg-9.0.2.tar.xz', source / 'ffprobe/BUILD-RECIPE.txt',

@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$Python = '',
-    [string]$DistPath = 'dist/1.1.0',
+    [string]$DistPath = 'dist/1.1.1',
     [switch]$SkipTests
 )
 
@@ -33,7 +33,7 @@ try {
     & $Python scripts\package_source.py --output (Join-Path $DistributionRoot 'MetaMovie-Organiser-Source.zip')
     if ($LASTEXITCODE -ne 0) { throw 'Source archive creation failed.' }
 
-    & $Python -m PyInstaller --noconfirm --clean --distpath $DistributionRoot --workpath build\1.1.0 packaging\MetaMovie-Organiser.spec
+    & $Python -m PyInstaller --noconfirm --clean --distpath $DistributionRoot --workpath build\1.1.1 packaging\MetaMovie-Organiser.spec
     if ($LASTEXITCODE -ne 0) { throw 'PyInstaller failed.' }
 
     $OutputDirectory = Join-Path $DistributionRoot 'MetaMovie-Organiser'

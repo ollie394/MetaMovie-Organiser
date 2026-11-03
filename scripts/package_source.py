@@ -50,7 +50,7 @@ def source_files() -> list[Path]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path,
-                        default=PROJECT_ROOT / 'dist' / 'MetaMovie-Organiser-Source.zip')
+                        default=PROJECT_ROOT / 'dist' / '1.1.1' / 'MetaMovie-Organiser-Source.zip')
     args = parser.parse_args()
     files = source_files()
     output = args.output.expanduser().resolve()

@@ -1,4 +1,10 @@
-# Validation for 1.1.0
+# Release validation
+
+## 1.1.1 build changes
+
+The patch retains the 1.1.0 application behaviour and updates the release version and packaging process. Two regression tests cover invalid cached archives and failed-download rejection. The corrected Windows workflow passed with 229 tests and 6 native-tool tests skipped before tool preparation, then built and uploaded all archives without deprecation warnings on 3 November 2026. See [the verified build](https://github.com/ollie394/MetaMovie-Organiser/actions/runs/41700071536). The final versioned build and package checks are recorded in the [1.1.1 release notes](https://github.com/ollie394/MetaMovie-Organiser/releases/tag/v1.1.1).
+
+## 1.1.0 application baseline
 
 The full automated suite passed on Windows with Python 3.13: **233 tests passed in 14.18 seconds** on 2 November 2026.
 

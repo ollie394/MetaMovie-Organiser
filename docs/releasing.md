@@ -13,7 +13,7 @@ Live TMDB/TVDB validation is a separate manual check with an authorised account.
 
 ## Build and inspect Windows output
 
-Run `scripts/build-windows.ps1`. It runs the tests, prepares the pinned native tools/source kit, creates an allowlisted application source archive, packages the app, records dependency versions and creates ZIPs with SHA-256 checksums under `dist/1.1.0`. Use `-DistPath` to keep another version's running package untouched.
+Run `scripts/build-windows.ps1`. It runs the tests, prepares the pinned native tools/source kit, creates an allowlisted application source archive, packages the app, records dependency versions and creates ZIPs with SHA-256 checksums under `dist/1.1.1`. Use `-DistPath` to keep another version's running package untouched.
 
 Run the packaged executable on a clean Windows account or computer without a separate Python installation. Confirm the icon, GUI, MediaInfo analysis, BLAKE3 transfers, credential backend and portable vault work. Inspect the output for bundled `pymediainfo/MediaInfo.dll` and dependency licence material. Source tests do not replace the packaged-app check.
 

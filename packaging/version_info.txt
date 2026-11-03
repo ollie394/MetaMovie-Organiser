@@ -1,7 +1,7 @@
 VSVersionInfo(
     ffi=FixedFileInfo(
-        filevers=(1, 1, 0, 0),
-        prodvers=(1, 1, 0, 0),
+        filevers=(1, 1, 1, 0),
+        prodvers=(1, 1, 1, 0),
         mask=0x3F,
         flags=0x0,
         OS=0x40004,
@@ -14,12 +14,12 @@ VSVersionInfo(
             StringTable('080904B0', [
                 StringStruct('CompanyName', 'ollie394'),
                 StringStruct('FileDescription', 'MetaMovie Organiser'),
-                StringStruct('FileVersion', '1.1.0'),
+                StringStruct('FileVersion', '1.1.1'),
                 StringStruct('InternalName', 'MetaMovie-Organiser'),
                 StringStruct('LegalCopyright', 'Copyright (c) 2026 ollie394'),
                 StringStruct('OriginalFilename', 'MetaMovie-Organiser.exe'),
                 StringStruct('ProductName', 'MetaMovie Organiser'),
-                StringStruct('ProductVersion', '1.1.0'),
+                StringStruct('ProductVersion', '1.1.1'),
             ]),
         ]),
         VarFileInfo([VarStruct('Translation', [2057, 1200])]),
