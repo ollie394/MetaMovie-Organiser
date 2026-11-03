@@ -2,9 +2,17 @@
 
 Match, rename and organise a movie collection with metadata from TMDB or TheTVDB. Scan a folder of films or its subfolders, review each match, and choose whether to rename files where they are or organise them into individual movie folders.
 
-![MetaMovie Organiser main window](docs/images/main-window.jpg)
-
 **MMO 1.1.0 · Python 3.11+ · Windows desktop**
+
+[![Movie library — choose a folder, operation and dry run](docs/images/movie-library.png)](docs/images/movie-library.png)
+
+| Output & validation | Media analytics |
+| --- | --- |
+| [![Transfer verification, dry run, NFO and embedded-tag options](docs/images/output-validation.png)](docs/images/output-validation.png) | [![Container, codec, resolution and HDR analysis](docs/images/media-analytics.png)](docs/images/media-analytics.png) |
+| **Embedded metadata** | **Connections & tools** |
+| [![Edit embedded title, release year and comment tags](docs/images/embedded-metadata.png)](docs/images/embedded-metadata.png) | [![Metadata providers, secure key storage and bundled media tools](docs/images/connections-tools.png)](docs/images/connections-tools.png) |
+
+Click any screenshot to view it at full size.
 
 ## Choose how to organise your films
 
