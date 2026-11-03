@@ -9,15 +9,19 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from http.client import IncompleteRead
 import json
 import os
 from pathlib import Path, PurePosixPath
 import shlex
 import shutil
 import subprocess
+import ssl
 import tarfile
+import time
 import zlib
 from urllib.request import Request, urlopen
+from urllib.error import URLError
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -69,7 +73,7 @@ def sha256(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
-def download_artifact(artifact):
+def _download_artifact_once(artifact):
     CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE / artifact['url'].rsplit('/', 1)[-1]
     if path.exists() and sha256(path) != artifact['sha256']:
@@ -115,6 +119,20 @@ def download_artifact(artifact):
     if sha256(path) != artifact['sha256']:
         raise RuntimeError('SHA-256 mismatch: ' + path.name)
     return path
+
+
+def download_artifact(artifact):
+    for attempt in range(3):
+        try:
+            return _download_artifact_once(artifact)
+        except (URLError, TimeoutError, ConnectionError, IncompleteRead, ssl.SSLError):
+            temporary = CACHE / (artifact['url'].rsplit('/', 1)[-1] + '.part')
+            temporary.unlink(missing_ok=True)
+            if attempt == 2:
+                raise
+            print(f'Temporary download failure; retrying {artifact["url"]} '
+                  f'({attempt + 2}/3)', flush=True)
+            time.sleep(2 ** (attempt + 1))
 
 
 def download(name):

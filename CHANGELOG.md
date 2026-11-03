@@ -5,6 +5,7 @@
 ### Fixed
 
 - Fetch GMP source from GNU's download server while retaining the pinned checksum; reject invalid downloads before caching them and replace invalid cached archives.
+- Retry interrupted dependency downloads up to three times, clearing partial files between attempts while keeping checksum failures fatal.
 - Update GitHub build actions to Node.js 24-compatible versions, removing the deprecated-runtime warning from Windows package uploads.
 
 ## 1.1.0 — 2026-11-02
