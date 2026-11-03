@@ -7,7 +7,7 @@
 - Fetch GMP source from GNU's download server while retaining the pinned checksum; reject invalid downloads before caching them and replace invalid cached archives.
 - Update GitHub build actions to Node.js 24-compatible versions, removing the deprecated-runtime warning from Windows package uploads.
 
-## 1.1.0 â€” 2026-11-02
+## 1.1.0 — 2026-11-02
 
 - Added movie matching through TheTVDB v4, with a separate API key and optional subscriber PIN.
 - Restored Quick, Verified and Custom transfer validation, including XXH3-128, BLAKE3 and SHA-256.
@@ -19,7 +19,7 @@
 - Added wrapping, scrollbars and full-value inspection for long properties and raw data.
 - Added provider, validation, workflow and native-media regression checks, plus retained native source archives and build recipes.
 
-## 1.0.0 â€” 2026-11-02
+## 1.0.0 — 2026-11-02
 
 - Added batch movie matching from one folder or a nested folder tree using TMDB.
 - Added reviewed rename-in-place operations that do not copy movie contents.

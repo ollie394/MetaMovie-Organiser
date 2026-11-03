@@ -63,7 +63,7 @@ class MovieApp:
         self.last_manifest = None
         self.scale = max(1.0, float(root.tk.call('tk', 'scaling')) * 72 / 96)
         apply_theme(root)
-        root.title(f'{APP_NAME} Â· {APP_VERSION}')
+        root.title(f'{APP_NAME} · {APP_VERSION}')
         set_icon(root, assets_path() / 'MMO.ico')
         width, height = self.settings.get('last_window_size', [1220, 900])
         screen_w,screen_h=root.winfo_screenwidth(),root.winfo_screenheight()
@@ -94,10 +94,10 @@ class MovieApp:
         self.metadata_comment_enabled = tk.BooleanVar(value=True)
         self.language = tk.StringVar(value=self.settings.get('language', 'en'))
         self.portable = tk.BooleanVar(value=support.portable_mode_enabled())
-        self.status = tk.StringVar(value='Ready Â· choose a movie folder to begin')
+        self.status = tk.StringVar(value='Ready · choose a movie folder to begin')
         self.progress_value = tk.DoubleVar(value=0)
         self.selection_note = tk.StringVar(value='Your plan will appear here. No changes happen until you review and apply it.')
-        self.preview_note = tk.StringVar(value='RENAME IN PLACE  Â·  no video copying')
+        self.preview_note = tk.StringVar(value='RENAME IN PLACE  ·  no video copying')
         self.search = tk.StringVar()
         self.collections_note=tk.StringVar(value='Use TMDB to identify movie collections and check which released films were not found among confirmed matches.')
         self.collection_detail=tk.StringVar(value='Select a collection to inspect owned, missing and upcoming films.')
@@ -108,7 +108,7 @@ class MovieApp:
         self.metadata_consent = tk.BooleanVar(value=False)
         self.metadata_note = tk.StringVar(value='Select a matched movie in the file plan to fill its title and year.')
         self.analytics_note = tk.StringVar(value='Analyse a folder to see real container and stream information. No API key is needed.')
-        self.metric_vars = {name:tk.StringVar(value='â€”') for name in ('Files','Storage','Video codecs','4K / 8K','HDR files')}
+        self.metric_vars = {name:tk.StringVar(value='—') for name in ('Files','Storage','Video codecs','4K / 8K','HDR files')}
         self.build()
         for variable in (self.source,self.destination,self.recursive,self.online,self.language,self.provider):
             variable.trace_add('write',lambda *_:self.invalidate_plan())
@@ -172,11 +172,11 @@ class MovieApp:
         setup.pack(fill='x',pady=(4,12))
         setup.columnconfigure(1,weight=1)
         field(setup,0,'Movies folder',self.source)
-        ttk.Button(setup,text='Browseâ€¦',command=self.choose_source).grid(row=0,column=2,padx=(10,0))
+        ttk.Button(setup,text='Browse…',command=self.choose_source).grid(row=0,column=2,padx=(10,0))
         ttk.Label(setup,text='Operation',style='Card.TLabel').grid(row=1,column=0,sticky='w',padx=(0,16),pady=6)
         ttk.Combobox(setup,textvariable=self.mode,values=list(MODES),state='readonly',width=22).grid(row=1,column=1,sticky='w',pady=6)
         self.destination_entry = field(setup,2,'Destination',self.destination)
-        self.destination_button = ttk.Button(setup,text='Browseâ€¦',command=lambda:self.destination.set(filedialog.askdirectory(parent=self.root,title='Choose Movies destination') or self.destination.get()))
+        self.destination_button = ttk.Button(setup,text='Browse…',command=lambda:self.destination.set(filedialog.askdirectory(parent=self.root,title='Choose Movies destination') or self.destination.get()))
         self.destination_button.grid(row=2,column=2,padx=(10,0))
         options = ttk.Frame(setup,style='Card.TFrame')
         options.grid(row=3,column=0,columnspan=3,sticky='ew',pady=(8,0))
@@ -218,8 +218,8 @@ class MovieApp:
         self.sample_check.grid(row=2,column=0,columnspan=2,sticky='w',pady=6)
         ttk.Label(checks,textvariable=self.validation_help,style='CardMuted.TLabel',wraplength=900).grid(row=3,column=0,columnspan=2,sticky='ew',pady=6)
         extra=card(self.output_tab.body,'OUTPUT','Optional outputs for every operation','These options apply to Rename in place, Copy and Move. Copy edits the destination only. Dry run reports the planned outputs without creating files or changing tags.')
-        ttk.Checkbutton(extra,text='Dry run Â· preview every change without applying it',variable=self.dry_run).pack(anchor='w')
-        ttk.Checkbutton(extra,text='Create a movie NFO file Â· existing NFO files are left unchanged',variable=self.write_nfo).pack(anchor='w',pady=6)
+        ttk.Checkbutton(extra,text='Dry run · preview every change without applying it',variable=self.dry_run).pack(anchor='w')
+        ttk.Checkbutton(extra,text='Create a movie NFO file · existing NFO files are left unchanged',variable=self.write_nfo).pack(anchor='w',pady=6)
         ttk.Checkbutton(extra,text='Correct embedded title and year after the file operation',variable=self.embedded_tags).pack(anchor='w',pady=6)
         self.comment_output_check=ttk.Checkbutton(extra,text='Replace the embedded comment with Movie title (Year)',variable=self.replace_comments)
         self.comment_output_check.pack(anchor='w',padx=(22,0))
@@ -250,7 +250,7 @@ class MovieApp:
         extras=[]
         if self.write_nfo.get(): extras.append('NFO')
         if self.embedded_tags.get(): extras.append('embedded tags'+(' + comment' if self.replace_comments.get() else ''))
-        self.preview_note.set(('DRY RUN  Â·  ' if self.dry_run.get() else '')+('RENAME IN PLACE  Â·  no video copying' if rename else self.mode.get().upper()+'  Â·  '+mode)+('  Â·  '+', '.join(extras) if extras else ''))
+        self.preview_note.set(('DRY RUN  ·  ' if self.dry_run.get() else '')+('RENAME IN PLACE  ·  no video copying' if rename else self.mode.get().upper()+'  ·  '+mode)+('  ·  '+', '.join(extras) if extras else ''))
         if hasattr(self,'plan_tree') and self.plan and self.thread is None:
             self.refresh_plan()
 
@@ -265,7 +265,7 @@ class MovieApp:
         toolbar.pack(fill='x')
         self.analyse_button = ttk.Button(toolbar,text='Analyse folder',style='Primary.TButton',command=self.analyse)
         self.analyse_button.pack(side='left')
-        ttk.Button(toolbar,text='Choose folderâ€¦',command=self.choose_source).pack(side='left',padx=8)
+        ttk.Button(toolbar,text='Choose folder…',command=self.choose_source).pack(side='left',padx=8)
         ttk.Button(toolbar,text='Export CSV',command=lambda:self.export('csv')).pack(side='right',padx=(8,0))
         ttk.Button(toolbar,text='Export JSON',command=lambda:self.export('json')).pack(side='right')
         ttk.Button(toolbar,text='Export counts',command=self.export_counts).pack(side='right',padx=8)
@@ -335,7 +335,7 @@ class MovieApp:
         ttk.Checkbutton(body,text='I want to modify the embedded tags of the selected file',variable=self.metadata_consent).grid(row=5,column=0,columnspan=2,sticky='w',pady=8)
         buttons = ttk.Frame(body,style='Card.TFrame')
         buttons.grid(row=6,column=0,columnspan=2,sticky='ew',pady=8)
-        ttk.Button(buttons,text='Choose a videoâ€¦',command=self.choose_metadata).pack(side='left')
+        ttk.Button(buttons,text='Choose a video…',command=self.choose_metadata).pack(side='left')
         ttk.Button(buttons,text='Correct embedded tags',style='Primary.TButton',command=self.update_metadata).pack(side='left',padx=10)
         ttk.Button(buttons,text='Restore last tag edit',command=self.undo_metadata).pack(side='right')
         body2=card(self.metadata_tab.body,'INFO','Technical properties stay factual','Codec, resolution, bit depth, HDR and audio languages describe the actual media streams. MMO reports them from the file; it does not invent them or transcode your movies.')
@@ -364,7 +364,7 @@ class MovieApp:
         tools = card(self.settings_tab.body,'TOOLS','Media tools','The Windows package includes MediaInfo CLI, FFprobe and MKVToolNix tools. Leave paths empty to use the bundled versions, or choose your own tools below.')
         for row,name in enumerate(self.tool_vars):
             field(tools,row,{'mediainfo':'MediaInfo CLI','ffprobe':'FFprobe fallback','mkvpropedit':'MKVPropEdit'}[name],self.tool_vars[name])
-            ttk.Button(tools,text='Browseâ€¦',command=lambda name=name:self.pick_tool(name)).grid(row=row,column=2,padx=(8,0))
+            ttk.Button(tools,text='Browse…',command=lambda name=name:self.pick_tool(name)).grid(row=row,column=2,padx=(8,0))
         ttk.Button(tools,text='Use bundled tools',command=self.use_bundled_tools).grid(row=3,column=1,sticky='w',pady=8)
         self.tool_status=tk.StringVar(value=self.detect_tools())
         ttk.Label(tools,textvariable=self.tool_status,style='CardMuted.TLabel',wraplength=900).grid(row=4,column=0,columnspan=3,sticky='ew',pady=6)
@@ -393,7 +393,7 @@ class MovieApp:
         rename=MODES[self.mode.get()]=='rename'
         self.destination_entry.configure(state='disabled' if rename else 'normal')
         self.destination_button.configure(state='disabled' if rename else 'normal')
-        self.preview_note.set('RENAME IN PLACE  Â·  no video copying' if rename else self.mode.get().upper()+'  Â·  verified transfers')
+        self.preview_note.set('RENAME IN PLACE  ·  no video copying' if rename else self.mode.get().upper()+'  ·  verified transfers')
         self.invalidate_plan()
         if hasattr(self,'validation_combo'): self.output_changed()
 
@@ -437,7 +437,7 @@ class MovieApp:
 
     def worker_progress(self,current,total,phase='Working'):
         percent=max(0,min(100,100*current/max(total,1)))
-        self.post(lambda:(self.progress_value.set(percent),self.status.set(f'{phase} Â· {percent:.0f}%')))
+        self.post(lambda:(self.progress_value.set(percent),self.status.set(f'{phase} · {percent:.0f}%')))
 
     def busy(self,value):
         if value:
@@ -461,19 +461,19 @@ class MovieApp:
         self.cancel.clear()
         self.progress_value.set(0)
         self.busy(True)
-        self.status.set('Workingâ€¦')
+        self.status.set('Working…')
         def worker():
             try:
                 result=task()
                 if done:
                     self.post(lambda result=result:done(result))
             except support.Cancelled:
-                self.post(lambda:self.status.set('Cancelled Â· completed changes remain recorded for Undo'))
+                self.post(lambda:self.status.set('Cancelled · completed changes remain recorded for Undo'))
                 self.worker_log('Cancelled safely. Check the activity and recovery records before retrying.')
             except Exception as exc:
                 clean=support.redact_secrets(f'{type(exc).__name__}: {exc}')
                 self.worker_log('Failed: '+clean)
-                self.post(lambda clean=clean:self.status.set('Could not finish Â· '+clean[:140]))
+                self.post(lambda clean=clean:self.status.set('Could not finish · '+clean[:140]))
             finally:
                 self.post(lambda:self.finish_worker())
         self.thread=threading.Thread(target=worker,daemon=False,name='MMO-worker')
@@ -506,7 +506,7 @@ class MovieApp:
 
     def request_cancel(self):
         self.cancel.set()
-        self.status.set('Cancelling at the next safe checkpointâ€¦')
+        self.status.set('Cancelling at the next safe checkpoint…')
 
     def get_source(self):
         path=Path(self.source.get().strip())
@@ -537,7 +537,7 @@ class MovieApp:
     def receive_plan(self,plan):
         self.plan=plan
         self.refresh_plan()
-        self.status.set(f'Preview ready Â· {len(plan)} movie group(s) Â· no files changed')
+        self.status.set(f'Preview ready · {len(plan)} movie group(s) · no files changed')
         self.log(f'Preview ready: {len(plan)} group(s). Double-click a row to include or exclude it; edit unresolved matches before applying.')
         self.notebook.select(self.library_tab)
 
@@ -557,12 +557,12 @@ class MovieApp:
             except (ValueError,TypeError):
                 original,proposed=group.source,target
             subtitle_count=sum(change.kind=='subtitle' for change in group.files)
-            display_status=group.status+(f' Â· {subtitle_count} subtitle(s)' if subtitle_count else '')
-            self.plan_tree.insert('', 'end',iid=str(index), values=('âœ“' if self.eligible(group) else '',title,str(original),str(proposed),display_status),tags=('good' if self.eligible(group) else 'warning',))
+            display_status=group.status+(f' · {subtitle_count} subtitle(s)' if subtitle_count else '')
+            self.plan_tree.insert('', 'end',iid=str(index), values=('✓' if self.eligible(group) else '',title,str(original),str(proposed),display_status),tags=('good' if self.eligible(group) else 'warning',))
         if selected and self.plan_tree.exists(selected[0]):
             self.plan_tree.selection_set(selected)
         self.apply_button.configure(state='normal' if any(self.eligible(g) for g in self.plan) and self.thread is None else 'disabled')
-        self.selection_note.set(f'{len(self.plan)} group(s) Â· {sum(self.eligible(g) for g in self.plan)} ready and approved Â· double-click a row to toggle approval. Select a row to inspect every associated file.')
+        self.selection_note.set(f'{len(self.plan)} group(s) · {sum(self.eligible(g) for g in self.plan)} ready and approved · double-click a row to toggle approval. Select a row to inspect every associated file.')
 
     def selected_group(self):
         selected=self.plan_tree.selection()
@@ -571,8 +571,8 @@ class MovieApp:
     def select_movie(self,event=None):
         group=self.selected_group()
         if group:
-            changes='\n'.join(f'{item.kind}: {item.src.name} â†’ {item.dst.name}' for item in group.files[:8])
-            self.selection_note.set(f'Folder: {group.source.parent} â†’ {group.destination}\n{changes}'+ ('\n'+ '; '.join(group.warnings) if group.warnings else ''))
+            changes='\n'.join(f'{item.kind}: {item.src.name} → {item.dst.name}' for item in group.files[:8])
+            self.selection_note.set(f'Folder: {group.source.parent} → {group.destination}\n{changes}'+ ('\n'+ '; '.join(group.warnings) if group.warnings else ''))
             self.metadata_path=Path(group.source)
             self.metadata_title.set(group.title)
             self.metadata_year.set(str(group.year or ''))
@@ -662,13 +662,13 @@ class MovieApp:
 
     def applied(self,result):
         if getattr(result,'dry_run',False):
-            self.status.set('Dry run complete Â· no media files, NFOs or tags changed')
+            self.status.set('Dry run complete · no media files, NFOs or tags changed')
             self.log('Dry run complete. Turn off Dry run to apply the reviewed changes.')
             return
         self.last_manifest=result.manifest
         self.log(f'File operation recorded: {result.manifest}')
         self.log(f'{result.completed} completed; {result.failures} issue(s). NFO: {getattr(result,"nfo_created",0)}; embedded tags: {getattr(result,"tags_updated",0)}.')
-        self.status.set(f'Files: {result.completed} Â· Tags: {getattr(result,"tags_updated",0)} Â· NFO: {getattr(result,"nfo_created",0)} Â· Issues: {result.failures}'+(' Â· cancelled' if result.cancelled else ''))
+        self.status.set(f'Files: {result.completed} · Tags: {getattr(result,"tags_updated",0)} · NFO: {getattr(result,"nfo_created",0)} · Issues: {result.failures}'+(' · cancelled' if result.cancelled else ''))
         if result.paths:
             self.metadata_path=Path(result.paths[0]);self.metadata_note.set(str(self.metadata_path))
         self.invalidate_plan()
@@ -732,8 +732,8 @@ class MovieApp:
         self.category_tree.tag_configure('heading',foreground=ACCENT)
         self.category_filter=None
         self.populate_records()
-        self.analytics_note.set(f'{total} files Â· {summary.get("files_failed",len(report.errors))} unreadable Â· {report.engine}. Category counts are distinct files; a movie with several audio codecs may appear in several categories. External subtitles: {summary.get("external_subtitles_total",0)}. Double-click for every stream and raw fields.')
-        self.status.set(f'Analysis complete Â· {total} files Â· {len(report.errors)} issue(s)')
+        self.analytics_note.set(f'{total} files · {summary.get("files_failed",len(report.errors))} unreadable · {report.engine}. Category counts are distinct files; a movie with several audio codecs may appear in several categories. External subtitles: {summary.get("external_subtitles_total",0)}. Double-click for every stream and raw fields.')
+        self.status.set(f'Analysis complete · {total} files · {len(report.errors)} issue(s)')
         self.log(self.analytics_note.get())
 
     def invalidate_report(self,message):
@@ -741,7 +741,7 @@ class MovieApp:
         self.analytics_tree.delete(*self.analytics_tree.get_children())
         self.category_tree.delete(*self.category_tree.get_children())
         self.category_filter=None
-        for variable in self.metric_vars.values(): variable.set('â€”')
+        for variable in self.metric_vars.values(): variable.set('—')
         self.analytics_note.set(message)
         self.collections_report=None
         self.collections_tree.delete(*self.collections_tree.get_children())
@@ -826,9 +826,9 @@ class MovieApp:
             owned+=have;missing+=absent;upcoming+=future
             self.collections_tree.insert('','end',iid=str(index),values=(collection.get('name','Collection'),have,absent,future))
         uncertainty=len(report.unmatched)
-        self.collections_note.set(f'{len(report.collections)} collections Â· {owned} owned members Â· {missing} released films not found among confirmed matches Â· {upcoming} upcoming/undated Â· {uncertainty} unmatched files Â· {len(report.errors)} issue(s). Unmatched files can affect completeness; review them before treating a film as missing.')
+        self.collections_note.set(f'{len(report.collections)} collections · {owned} owned members · {missing} released films not found among confirmed matches · {upcoming} upcoming/undated · {uncertainty} unmatched files · {len(report.errors)} issue(s). Unmatched files can affect completeness; review them before treating a film as missing.')
         self.collection_detail.set('Select a collection to see its films. Owned films are matched by TMDB ID; upcoming or undated films are listed separately.')
-        self.status.set(f'Collection check complete Â· {len(report.collections)} collections Â· {missing} not found Â· {uncertainty} unmatched')
+        self.status.set(f'Collection check complete · {len(report.collections)} collections · {missing} not found · {uncertainty} unmatched')
         self.log(self.collections_note.get())
         if report.collections: self.collections_tree.selection_set('0')
 
@@ -841,21 +841,21 @@ class MovieApp:
         for category,label in (('owned','Owned'),('missing','Not found'),('upcoming','Upcoming / TBA')):
             for movie in collection.get(category,[]):
                 paths=' | '.join(movie.get('paths',[]))
-                iid=self.collection_members.insert('','end',values=(label,movie.get('title',''),movie.get('year') or 'â€”',movie.get('release_date') or 'TBA',paths),tags=(category,))
+                iid=self.collection_members.insert('','end',values=(label,movie.get('title',''),movie.get('year') or '—',movie.get('release_date') or 'TBA',paths),tags=(category,))
                 self.collection_member_records[iid]=movie
-        self.collection_detail.set(collection.get('name','Collection')+' Â· not-found results are based on confirmed matches in the scanned folder and its selected subfolders.')
+        self.collection_detail.set(collection.get('name','Collection')+' · not-found results are based on confirmed matches in the scanned folder and its selected subfolders.')
 
     def select_collection_member(self,event=None):
         selected=self.collection_members.selection()
         if not selected: return
         movie=self.collection_member_records[selected[0]]
         paths='\n'.join(movie.get('paths',[]))
-        self.collection_detail.set(f'{movie.get("title","")} ({movie.get("year") or "TBA"}) Â· {movie.get("status","")}'+('\n'+paths if paths else ''))
+        self.collection_detail.set(f'{movie.get("title","")} ({movie.get("year") or "TBA"}) · {movie.get("status","")}'+('\n'+paths if paths else ''))
 
     def show_collection_issues(self):
         if not self.collections_report:
             self.status.set('Check film collections first');return
-        dialog=self.new_dialog('Collection matching Â· unmatched files and errors',1000,650)
+        dialog=self.new_dialog('Collection matching · unmatched files and errors',1000,650)
         self.readonly_text(dialog,json.dumps({'unmatched':self.collections_report.unmatched,'errors':self.collections_report.errors,'notes':self.collections_report.notes},ensure_ascii=False,indent=2))
 
     def export_collections(self,format):
@@ -872,7 +872,7 @@ class MovieApp:
         selected=self.analytics_tree.selection()
         if not selected or not self.report: return
         record=self.report.records[int(selected[0])]
-        dialog=self.new_dialog('Media details Â· '+Path(record['path']).name,1050,720)
+        dialog=self.new_dialog('Media details · '+Path(record['path']).name,1050,720)
         book=ttk.Notebook(dialog)
         book.pack(fill='both',expand=True,padx=16,pady=16)
         for key,label in (('general','Container'),('video','Video'),('audio','Audio'),('text','Embedded subtitles'),('external_text','External subtitles'),('tags','File tags'),('raw','All raw fields')):
@@ -901,7 +901,7 @@ class MovieApp:
                 tree.insert('','end',values=('No streams reported',''))
             for index,stream in enumerate(streams,1):
                 if isinstance(content,list):
-                    tree.insert('','end',values=(f'Stream {index} Â· {stream.get("codec",stream.get("format",""))}',''),tags=('heading',))
+                    tree.insert('','end',values=(f'Stream {index} · {stream.get("codec",stream.get("format",""))}',''),tags=('heading',))
                 for name,value in stream.items():
                     if isinstance(value,(dict,list)):
                         value=json.dumps(value,ensure_ascii=False,default=str)
@@ -991,7 +991,7 @@ class MovieApp:
 
     def metadata_done(self,result):
         self.log(str(result.get('details',result)))
-        self.status.set('Embedded tags Â· '+str(result.get('status','finished')))
+        self.status.set('Embedded tags · '+str(result.get('status','finished')))
         self.metadata_consent.set(False)
         self.invalidate_report('Embedded tags changed. Analyse again to refresh technical details and cached tags.')
         self.invalidate_plan()
@@ -1009,7 +1009,7 @@ class MovieApp:
         if self.store is None:
             self.store=support.CredentialsStore(self.portable.get())
         if self.store.portable and not self.store._passphrase:
-            value=simpledialog.askstring('MMO portable vault','Enter the vault passphrase:',show='â€¢',parent=self.root)
+            value=simpledialog.askstring('MMO portable vault','Enter the vault passphrase:',show='•',parent=self.root)
             if not value: return False
             self.store.set_session_passphrase(value)
             try:
@@ -1035,7 +1035,7 @@ class MovieApp:
             if not self.unlock(): return
             saved=self.store.set('tvdb_key' if self.provider.get()=='TVDB' else 'tmdb_key',key)
             if self.provider.get()=='TVDB': saved=self.store.set('tvdb_pin',self.tvdb_pin.get().strip()) and saved
-            self.status.set('Key saved securely' if saved else 'Key available for this session Â· secure storage unavailable')
+            self.status.set('Key saved securely' if saved else 'Key available for this session · secure storage unavailable')
             self.online.set(True)
         except Exception as exc: messagebox.showwarning('Could not save key',support.redact_secrets(exc),parent=self.root)
 
@@ -1077,7 +1077,7 @@ class MovieApp:
             self.store=support.CredentialsStore(self.portable.get())
             support.configure_logging()
             self.persist()
-            self.status.set('Storage mode changed Â· save the key again to store it in this mode')
+            self.status.set('Storage mode changed · save the key again to store it in this mode')
         except Exception as exc:
             support._PORTABLE_OVERRIDE=old
             self.portable.set(old)
@@ -1112,7 +1112,7 @@ class MovieApp:
             ttk.Label(frame,image=self.mark).pack(anchor='w')
         ttk.Label(frame,text=APP_NAME,style='Heading.TLabel').pack(anchor='w',pady=(12,6))
         ttk.Label(frame,text='Version '+APP_VERSION,style='Accent.TLabel').pack(anchor='w',pady=(0,18))
-        ttk.Label(frame,text='Movie naming, embedded title correction and media analytics.\n\nThis product uses the TMDB API but is not endorsed or certified by TMDB.\nMetadata is also provided by TheTVDB.\nMedia analysis is powered by MediaInfo.\n\nCopyright Â© 2026 ollie394. Application source: MIT.\nBundled components retain their own licences; see the included attribution.',style='Muted.TLabel',wraplength=620,justify='left').pack(anchor='w')
+        ttk.Label(frame,text='Movie naming, embedded title correction and media analytics.\n\nThis product uses the TMDB API but is not endorsed or certified by TMDB.\nMetadata is also provided by TheTVDB.\nMedia analysis is powered by MediaInfo.\n\nCopyright © 2026 ollie394. Application source: MIT.\nBundled components retain their own licences; see the included attribution.',style='Muted.TLabel',wraplength=620,justify='left').pack(anchor='w')
         ttk.Button(frame,text='Close',command=dialog.destroy).pack(anchor='e',pady=16)
 
     def close(self):

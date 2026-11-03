@@ -2,7 +2,7 @@
 
 Match, rename and organise a movie collection with metadata from TMDB or TheTVDB. Scan a folder of films or its subfolders, review each match, and choose whether to rename files where they are or organise them into individual movie folders.
 
-**MMO 1.1.1 Â· Python 3.11+ Â· Windows desktop**
+**MMO 1.1.1 · Python 3.11+ · Windows desktop**
 
 ## Windows download
 
@@ -12,7 +12,7 @@ Extract the entire ZIP, then run `MetaMovie-Organiser.exe`. Keep the included `_
 
 [Release notes, source and checksums](https://github.com/ollie394/MetaMovie-Organiser/releases/tag/v1.1.1).
 
-[![Movie library â€” choose a folder, operation and dry run](docs/images/movie-library.png)](docs/images/movie-library.png)
+[![Movie library — choose a folder, operation and dry run](docs/images/movie-library.png)](docs/images/movie-library.png)
 
 | Output & validation | Media analytics |
 | --- | --- |
@@ -30,12 +30,12 @@ Click any screenshot to view it at full size.
 
 ```text
 Movies/
-â”œâ”€â”€ Avatar (2009)/
-â”‚   â””â”€â”€ Avatar (2009).mkv
-â””â”€â”€ Batman Begins (2005)/
-    â”œâ”€â”€ Batman Begins (2005).mp4
-    â”œâ”€â”€ Batman Begins (2005).en.srt
-    â””â”€â”€ poster.jpg
+├── Avatar (2009)/
+│   └── Avatar (2009).mkv
+└── Batman Begins (2005)/
+    ├── Batman Begins (2005).mp4
+    ├── Batman Begins (2005).en.srt
+    └── poster.jpg
 ```
 
 Associated subtitles keep their language and accessibility suffixes, including subtitles stored under a movie's `Subs` or `Subtitles` folder. An existing local poster follows its movie when the association is clear. Uncertain associations and conflicting files require review; existing files are never overwritten. Poster downloads and transcoding are outside this workflow.
