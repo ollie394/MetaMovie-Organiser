@@ -145,6 +145,8 @@ The application source is available under the [MIT licence](LICENSE). The combin
 
 This product uses the TMDB API but is not endorsed or certified by TMDB.
 
+Metadata is also provided by [TheTVDB](https://thetvdb.com/). Please consider contributing missing information or [subscribing](https://thetvdb.com/subscribe).
+
 ## Development history
 
 See [the development history](HISTORY.md) for earlier source snapshots and how they relate to the current release.
