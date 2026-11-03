@@ -1112,7 +1112,7 @@ class MovieApp:
             ttk.Label(frame,image=self.mark).pack(anchor='w')
         ttk.Label(frame,text=APP_NAME,style='Heading.TLabel').pack(anchor='w',pady=(12,6))
         ttk.Label(frame,text='Version '+APP_VERSION,style='Accent.TLabel').pack(anchor='w',pady=(0,18))
-        ttk.Label(frame,text='Movie naming, embedded title correction and media analytics.\n\nThis product uses the TMDB API but is not endorsed or certified by TMDB.\nMetadata is also provided by TheTVDB.\nMedia analysis is powered by MediaInfo.\n\nCopyright © 2026 James. Application source: MIT.\nBundled components retain their own licences; see the included attribution.',style='Muted.TLabel',wraplength=620,justify='left').pack(anchor='w')
+        ttk.Label(frame,text='Movie naming, embedded title correction and media analytics.\n\nThis product uses the TMDB API but is not endorsed or certified by TMDB.\nMetadata is also provided by TheTVDB.\nMedia analysis is powered by MediaInfo.\n\nCopyright © 2026 ollie394. Application source: MIT.\nBundled components retain their own licences; see the included attribution.',style='Muted.TLabel',wraplength=620,justify='left').pack(anchor='w')
         ttk.Button(frame,text='Close',command=dialog.destroy).pack(anchor='e',pady=16)
 
     def close(self):

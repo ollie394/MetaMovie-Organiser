@@ -12,11 +12,11 @@ VSVersionInfo(
     kids=[
         StringFileInfo([
             StringTable('080904B0', [
-                StringStruct('CompanyName', 'James'),
+                StringStruct('CompanyName', 'ollie394'),
                 StringStruct('FileDescription', 'MetaMovie Organiser'),
                 StringStruct('FileVersion', '1.1.0'),
                 StringStruct('InternalName', 'MetaMovie-Organiser'),
-                StringStruct('LegalCopyright', 'Copyright (c) 2026 James'),
+                StringStruct('LegalCopyright', 'Copyright (c) 2026 ollie394'),
                 StringStruct('OriginalFilename', 'MetaMovie-Organiser.exe'),
                 StringStruct('ProductName', 'MetaMovie Organiser'),
                 StringStruct('ProductVersion', '1.1.0'),
