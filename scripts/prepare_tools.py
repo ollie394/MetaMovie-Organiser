@@ -72,6 +72,8 @@ def sha256(path):
 def download_artifact(artifact):
     CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE / artifact['url'].rsplit('/', 1)[-1]
+    if path.exists() and sha256(path) != artifact['sha256']:
+        path.unlink()  # Discard an invalid cache entry before fetching again.
     if not path.exists():
         for directory in (ROOT / 'ffprobe', ROOT / 'mkvtoolnix', SOURCES / 'ffprobe', SOURCES / 'mkvtoolnix'):
             retained = directory / path.name
@@ -103,6 +105,12 @@ def download_artifact(artifact):
                 with urlopen(artifact['url'], timeout=45) as response:
                     while block := response.read(256 * 1024):
                         output.write(block)
+        actual = sha256(temporary)
+        if actual != artifact['sha256']:
+            temporary.unlink()
+            raise RuntimeError(
+                f"SHA-256 mismatch: {path.name}; expected {artifact['sha256']}, got {actual}"
+            )
         temporary.replace(path)
     if sha256(path) != artifact['sha256']:
         raise RuntimeError('SHA-256 mismatch: ' + path.name)
